@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const http = require("http");
 const { Server } = require("socket.io");
 const cors = require("cors");
-const handleSocket = require("./socket");
+const handleSocket = require("./socket/index.js");
 require("dotenv").config();
 
 const PORT = process.env.PORT;
