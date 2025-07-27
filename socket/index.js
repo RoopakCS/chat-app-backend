@@ -7,13 +7,13 @@ module.exports = function (io) {
     socket.on("sendMessage", async (messageText) => {
       const newMessage = await Message.create({ text: messageText });
 
-      io.emit("recieveMessage", {
-        test: newMessage,
+      io.emit("receiveMessage", {
+        text: newMessage.text,
         createdAt: newMessage.createdAt,
       });
     });
 
-    io.on("disconnect", () => {
+    socket.on("disconnect", () => {
       console.log(`User Disconnected: ${socket.id}`);
     });
   });
